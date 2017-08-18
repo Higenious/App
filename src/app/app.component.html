@@ -1,0 +1,150 @@
+<div class="container"> 
+    <div class="row">
+        <div class="col-md-8">
+             <h1>{{title}}</h1>
+        </div>
+        <div class="col-md-4">
+            <div class="alert alert-success alert-dismissable">
+            <a href="#"  (click)="clickMe()" class="close">&times;</a>
+           {{msg}}
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <hr>     
+  
+    <!-- <h2>Create data:</h2>
+    <form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Name:</label>
+        <div class="col-sm-10">
+        <input type="text" class="form-control" id="name" 
+        name="name" [(ngModel)]="model.name" placeholder="Enter your name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="position">Position:</label>
+        <div class="col-sm-10"> 
+        <input type="text" class="form-control" id="position"
+        name="position" [(ngModel)]="model.position" placeholder="Enter your position">
+        </div>
+    </div>
+
+    <div class="form-group"> 
+        <div class="col-sm-offset-2 col-sm-10">
+        <button (click)="addEmployee()" class="btn btn-default">Save</button>
+        <button (click)="maddEmployee()" class="btn btn-info btn-lg pull-right " data-toggle="modal" data-target="#myModal" >Add New</button>  
+        </div>
+         
+    </div>
+    </form> -->
+    
+        <button (click)="maddEmployee()" class="btn btn-info btn-lg pull-right " data-toggle="modal" data-target="#myModal" >Add New</button>  
+       <h2>All User</h2>
+       <span class="clearfix"></span>
+       <hr>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th width=400>Name</th>
+        <th width=400>Position</th>
+        <th width=250>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees; let i=index">
+        <td>{{employee.name}}</td>
+        <td>{{employee.position}}</td>
+        <td>
+            <a (click)="editEmployee(i)" class="btn btn-success">Edit</a>
+            <a (click)="deleteEmployee(i)"class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+   <h2>Update User:</h2>
+    <form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Name:</label>
+        <div class="col-sm-10">
+        <input type="text" class="form-control" id="name" 
+        name="name"  [(ngModel)]="model2.name" placeholder="Enter your name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="position">Position:</label>
+        <div class="col-sm-10"> 
+        <input type="text" class="form-control" id="position"
+        name="position" [(ngModel)]="model2.position" placeholder="Enter your position">
+        </div>
+    </div>
+
+    <div class="form-group"> 
+        <div class="col-sm-offset-2 col-sm-10">
+        <button (click)="updateEmployee()"  type="submit" class="btn btn-default">Update</button>
+        </div>
+    </div>
+    </form>
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add New User Reg</h4>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-2">name:</label>
+    <div class="col-sm-10">
+<!--       <input type="text" class="form-control" [(ngModel)]="model.name" >
+ -->
+   <input type="text" class="form-control" id="name" 
+        name="name" [(ngModel)]="model.name" placeholder="Enter your name">
+       
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="control-label col-sm-2">Position:</label>
+    <div class="col-sm-10"> 
+ <!--  <input type="text" class="form-control" [(ngModel)]="model.position">
+  -->   
+  <input type="text" class="form-control" id="position"
+        name="position" [(ngModel)]="model.position" placeholder="Enter your position">
+       
+  </div>
+  </div>
+  
+
+
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button (click)="addEmployee()" class="btn btn-default"  data-dismiss="modal">Save</button>
+    </div>
+  </div>
+</form>
+ </div>
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</div>
